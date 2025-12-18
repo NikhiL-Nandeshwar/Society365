@@ -25,7 +25,7 @@ export default function Header() {
   const { state } = useSidebar();
   const { theme, setTheme } = useTheme();
 
-  const userName = "Dhiraj Patil"; // later from auth
+  const userName = "Society Admin"; // later from auth
   const initials = userName
     .split(" ")
     .map((n) => n[0])

@@ -44,7 +44,7 @@ import { SidebarFooter } from "@/components/ui/sidebar";
 import { buttonVariants } from "@/components/ui/button";
 
 const user = {
-  name: "Dhiraj Patil", // replace with dynamic user info
+  name: "Society Admin", // replace with dynamic user info
 };
 
 export function AppSidebarFooter() {
