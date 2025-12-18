@@ -48,14 +48,13 @@ export default function DashboardPage() {
         />
 
         <OverviewCard
-          title="Hall Bookings This Month"
+          title="Hall Total Bookings"
           value="4"
           sub="Society Hall"
           progress={75}
           icon={<CalendarCheck />}
           accent
         />
-
 
         <OverviewCard
           title="Monthly Collection"
