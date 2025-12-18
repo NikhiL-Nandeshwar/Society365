@@ -49,10 +49,11 @@ export default function DashboardPage() {
 
         <OverviewCard
           title="Hall Bookings This Month"
-          value="3"
+          value="4"
           sub="Society Hall"
-          progress={0}
+          progress={75}
           icon={<CalendarCheck />}
+          accent
         />
 
 
@@ -156,12 +157,12 @@ function OverviewCard({
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm text-muted-foreground">{title}</CardTitle>
+        <CardTitle className="text-muted-foreground">{title}</CardTitle>
         <div className="text-muted-foreground">{icon}</div>
       </CardHeader>
 
       <CardContent>
-        <div className="text-2xl font-semibold">{value}</div>
+        <div className="text-3xl font-semibold">{value}</div>
 
         <Progress
           value={progress}
@@ -169,7 +170,7 @@ function OverviewCard({
             }`}
         />
 
-        <p className="text-xs text-muted-foreground mt-1">{sub}</p>
+        <p className="text-muted-foreground mt-1">{sub}</p>
       </CardContent>
     </Card>
   )
@@ -182,7 +183,7 @@ function SummaryCard({ title, value, footer, color, icon }: any) {
         <div>
           <p className="text-sm text-muted-foreground">{title}</p>
           <p className="text-xl font-semibold">{value}</p>
-          <p className="text-xs text-muted-foreground">{footer}</p>
+          <p className="text-sm text-muted-foreground">{footer}</p>
         </div>
         {icon}
       </CardContent>
