@@ -1,0 +1,1 @@
+export const customStyle = "border-muted-foreground/50 dark:border-muted-foreground/20 dark:bg-muted/30 rounded-[5px] focus-visible:ring-primary-70 min-h-[45px] focus-visible:border-transparent focus-visible:ring-offset-0 hover:border-primary"

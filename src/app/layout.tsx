@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientLayoutWrapper from "@/components/ui/ClientLayoutWrapper";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider>
           <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+          <Toaster richColors position="top-right" />
+
         </ThemeProvider>
       </body>
     </html>
