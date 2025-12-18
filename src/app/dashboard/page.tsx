@@ -177,14 +177,22 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between px-4 py-2">
-            <CardTitle className="text-sm text-muted-foreground">Monthly Rent</CardTitle>
+            <CardTitle className="text-sm text-muted-foreground">Monthly Collection</CardTitle>
             <IndianRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent className="px-4 pt-0 pb-3">
-            <h2 className="text-2xl font-semibold">₹12,450</h2>
-            <Progress value={50} className="mt-2 h-1.5" />
-            <p className="text-xs text-muted-foreground mt-1">50% collected</p>
+            <h2 className="text-2xl font-semibold">₹1,48,450</h2>
+
+            <Progress
+              value={65}
+              className="mt-2 h-1.5 bg-teal-500 [&>div]:bg-teal-700"
+            />
+
+            <p className="text-xs text-muted-foreground mt-1">
+              65% collected
+            </p>
           </CardContent>
+
         </Card>
 
         <Card>
@@ -298,11 +306,11 @@ export default function DashboardPage() {
                   className="fill-muted-foreground"
                 />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-               <Bar
+                <Bar
                   dataKey="desktop"
                   radius={6}
                   fill="var(--bar-fill)"
-/>
+                />
 
               </BarChart>
             </ChartContainer>

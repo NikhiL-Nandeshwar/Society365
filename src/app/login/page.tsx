@@ -109,7 +109,7 @@ export default function LoginPage() {
             {/* Remember + Forgot */}
             <div className="flex justify-between items-center text-sm mb-2">
               <label className="flex items-center space-x-2">
-                <input type="checkbox" className="h-4 w-4" />
+                <input type="checkbox" className="h-4 w-4 accent-teal-600" />
                 <span>Remember me</span>
               </label>
 
