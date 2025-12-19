@@ -30,7 +30,7 @@ const menuItems = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { label: 'Residents', href: '/dashboard/residents', icon: Users },
   { label: 'Maintenance', href: '/dashboard/maintenance', icon: Wrench },
-  { label: 'Finance', href: '/dashboard/finance', icon: IndianRupee },
+  // { label: 'Finance', href: '/dashboard/finance', icon: IndianRupee },
   { label: 'Document Vault', href: '/dashboard/document-vault', icon: Vault },
   { label: 'Amenities', href: '/dashboard/amenities', icon: CalendarCheck },
   { label: 'Service Contacts', href: '/dashboard/contacts', icon: ContactRound },
@@ -45,17 +45,23 @@ export default function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       {/* HEADER */}
-      <SidebarHeader className="border-b bg-gray-50">
-        <div className="flex items-center gap-2 px-3 h-12">
+      <SidebarHeader className="border-b px-3 py-3 bg-gray-50">
+        <div
+          className={`flex items-center gap-2 h-10 ${state === 'expanded' ? 'justify-start' : 'justify-center'
+            }`}
+        >
           <div className="w-8 h-8 rounded-md bg-teal-800 flex items-center justify-center text-white font-bold text-sm">
             S
           </div>
+
           {state === 'expanded' && (
             <span className="text-base font-semibold">
               Society-365
             </span>
           )}
         </div>
+
+
       </SidebarHeader>
 
       {/* MENU */}
@@ -92,9 +98,9 @@ export default function AppSidebar() {
       </SidebarContent>
 
       {/* FOOTER */}
-      <SidebarFooter className="border-t p-3 bg-gray-50">
+      <SidebarFooter className="border-t px-3 py-3 bg-gray-50">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-teal-800 text-white flex items-center justify-center text-sm font-semibold">
+          <div className="w-8 h-8 rounded-full bg-teal-800 hover:bg-teal-600 text-white flex items-center justify-center text-sm font-semibold">
             SA
           </div>
 

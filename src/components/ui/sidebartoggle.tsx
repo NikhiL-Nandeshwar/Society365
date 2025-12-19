@@ -1,7 +1,8 @@
-"use client";
+'use client'
 
-import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react'
+import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,84 +10,90 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { useTheme } from "next-themes";
-
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
+import { useTheme } from 'next-themes'
 import {
   Bell,
   Moon,
   Sun,
   Search,
   User,
-} from "lucide-react";
+} from 'lucide-react'
+import { SearchPreviewModal } from '../helper/search-preview'
 
 export default function Header() {
-  const { state } = useSidebar();
-  const { theme, setTheme } = useTheme();
+  const { state } = useSidebar()
+  const { theme, setTheme } = useTheme()
 
-  const userName = "Society Admin"; // later from auth
+  const [query, setQuery] = useState('')
+  const [openSearch, setOpenSearch] = useState(false)
+
+  const userName = 'Society Admin'
   const initials = userName
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
+    .split(' ')
+    .map(n => n[0])
+    .join('')
+    .toUpperCase()
 
   return (
-    <header className="w-full h-16 border-b bg-background flex items-center justify-between px-6">
-      
-      {/* LEFT SECTION */}
-      <div className="flex items-center gap-4">
+    <header className="h-14 border-b bg-background flex items-center justify-between px-6">
+      {/* LEFT */}
+      <div className="flex items-center gap-3">
         <SidebarTrigger />
 
-        {/* Show title only when sidebar collapsed */}
-        {state === "collapsed" && (
-          <h1 className="text-lg font-semibold tracking-wide">
+        {state === 'collapsed' && (
+          <span className="font-semibold tracking-wide text-sm">
             Society-365
-          </h1>
+          </span>
         )}
       </div>
 
-      {/* CENTER SEARCH */}
-      <div className="hidden md:flex w-1/3">
-        <div className="relative w-full">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+      {/* SEARCH */}
+      <div className="hidden md:block w-[360px]">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search..."
+            value={query}
+            placeholder="Search flat or resident..."
             className="pl-9"
+            onChange={(e) => {
+              setQuery(e.target.value)
+              setOpenSearch(e.target.value.length > 1)
+            }}
           />
         </div>
       </div>
 
-      {/* RIGHT SECTION */}
-      <div className="flex items-center gap-3">
-
+      {/* RIGHT */}
+      <div className="flex items-center gap-2">
         {/* Notifications */}
-        <Button variant="ghost" size="icon">
-          <Bell className="w-5 h-5" />
+        <Button variant="ghost" size="icon" className="relative">
+          <Bell className="h-5 w-5" />
+          <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500" />
         </Button>
 
-        {/* Dark / Light Toggle */}
-        <Button
+        {/* Theme toggle */}
+        {/* <Button
           variant="ghost"
           size="icon"
           onClick={() =>
-            setTheme(theme === "dark" ? "light" : "dark")
+            setTheme(theme === 'dark' ? 'light' : 'dark')
           }
         >
-          {theme === "dark" ? (
-            <Sun className="w-5 h-5" />
+          {theme === 'dark' ? (
+            <Sun className="h-5 w-5" />
           ) : (
-            <Moon className="w-5 h-5" />
+            <Moon className="h-5 w-5" />
           )}
-        </Button>
+        </Button> */}
 
-        {/* PROFILE DROPDOWN */}
+        {/* Profile */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="h-9 w-9 rounded-full bg-primary text-primary-foreground font-semibold"
+              className="h-8 w-8 rounded-full bg-teal-700 hover:bg-teal-400 hover:text-white text-white font-semibold"
             >
               {initials}
             </Button>
@@ -105,8 +112,11 @@ export default function Header() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-
       </div>
+
+      {/* Search Preview Modal */}
+     <SearchPreviewModal query={query} />
+
     </header>
-  );
+  )
 }
