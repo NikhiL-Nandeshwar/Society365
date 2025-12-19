@@ -40,6 +40,11 @@ const sidebarItems = [
     icon: CalendarCheck,
   },
   {
+    label: 'Contacts',
+    href: '/contacts',
+    icon: CalendarCheck,
+  },
+  {
     label: 'Notices',
     href: '/notices',
     icon: Bell,

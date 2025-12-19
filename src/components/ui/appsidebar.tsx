@@ -22,7 +22,8 @@ import {
   Bell,
   Settings,
   LogOut,
-  User,
+  ContactRound,
+  Vault,
 } from 'lucide-react'
 
 const menuItems = [
@@ -30,7 +31,9 @@ const menuItems = [
   { label: 'Residents', href: '/dashboard/residents', icon: Users },
   { label: 'Maintenance', href: '/dashboard/maintenance', icon: Wrench },
   { label: 'Finance', href: '/dashboard/finance', icon: IndianRupee },
+  { label: 'Document Vault', href: '/dashboard/document-vault', icon: Vault },
   { label: 'Amenities', href: '/dashboard/amenities', icon: CalendarCheck },
+  { label: 'Service Contacts', href: '/dashboard/contacts', icon: ContactRound },
   { label: 'Notices', href: '/dashboard/notices', icon: Bell },
 ]
 

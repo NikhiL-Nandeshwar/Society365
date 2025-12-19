@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Building2, ShieldCheck, CalendarCheck, IndianRupee } from 'lucide-react'
 import { ActivityRow, NoticeRow, OverviewCard, SummaryTile } from '@/components/helper/dashboard-cards'
 import ImportantContactsCard from '@/components/dashboard/important-contacts-card'
+import { NoticesCard } from '@/components/dashboard/notices-card'
 
 export default function DashboardPage() {
   return (
-    <div className="flex flex-col gap-8 w-full p-4 md:p-5">
+    <div className="flex flex-col gap-8 w-full px-4 py-1">
       {/* Top Overview Cards */}
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold text-muted-foreground mb-1">
@@ -125,24 +126,11 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Notices */}
+      {/* Important contacts and Notices */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ImportantContactsCard />
-        <Card>
-          <CardHeader>
-            <CardTitle>Latest Notices</CardTitle>
-            <CardDescription>Active announcements</CardDescription>
-          </CardHeader>
-
-          <CardContent className="space-y-3">
-            <NoticeRow text="Water supply will be unavailable on Sunday" />
-            <NoticeRow text="Monthly maintenance due by 10th" />
-            <NoticeRow text="Diwali decoration meeting on Friday" />
-          </CardContent>
-        </Card>
-        <Card className='border-none'></Card>
+        <NoticesCard />
       </div>
-
     </div>
   )
 }
