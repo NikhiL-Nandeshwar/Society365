@@ -29,9 +29,9 @@ export default function Maintenance() {
                     </p>
                 </div>
 
-                <Button onClick={() => setOpen(true)} className="gap-2">
+                <Button onClick={() => setOpen(true)} className="gap-2 bg-teal-700 hover:bg-teal-600 text-white hover:text-white">
                     <Plus className="h-4 w-4" />
-                    Raise Complaint
+                    Raise Maintenance Complaint
                 </Button>
             </div>
 
@@ -70,14 +70,14 @@ export default function Maintenance() {
                 </TabsList>
 
 
-                {/* ================= COMPLAINTS TAB ================= */}
+                {/*  Complaints TAB  */}
                 <TabsContent value="complaints" className="space-y-6 mt-4">
                     {/* Summary */}
                     <Card className="px-4 py-3 flex flex-wrap gap-4 text-sm">
                         <Stat label="Total" value="12" />
-                        <Stat label="Open" value="6" />
-                        <Stat label="In Progress" value="4" />
-                        <Stat label="Resolved" value="2" />
+                        <Stat label="Open" variant='danger' value="6" />
+                        <Stat label="In Progress" variant='info' value="4" />
+                        <Stat label="Resolved" variant='success' value="2" />
                     </Card>
 
                     {/* Active */}
@@ -86,22 +86,33 @@ export default function Maintenance() {
                             Active Complaints
                         </h2>
 
-                        <ComplaintCard
-                            flat="A-302"
-                            category="Plumbing"
-                            desc="Water leakage in bathroom"
-                            status="Open"
-                            priority="High"
-                        />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <ComplaintCard
+                                flat="A-302"
+                                category="Plumbing"
+                                desc="Water leakage in ceiling"
+                                status="Open"
+                                priority="High"
+                            />
 
-                        <ComplaintCard
-                            flat="B-104"
-                            category="Electrical"
-                            desc="Lift not working"
-                            status="In Progress"
-                            priority="Medium"
-                        />
+                            <ComplaintCard
+                                flat="A-302"
+                                category="Plumbing"
+                                desc="Water leakage in bathroom"
+                                status="Open"
+                                priority="High"
+                            />
+
+                            <ComplaintCard
+                                flat="B-104"
+                                category="Electrical"
+                                desc="Lift not working for B wing"
+                                status="In Progress"
+                                priority="Medium"
+                            />
+                        </div>
                     </div>
+
 
                     {/* Resolved */}
                     <div className="space-y-3">
@@ -119,7 +130,7 @@ export default function Maintenance() {
                     </div>
                 </TabsContent>
 
-                {/* ================= PAYMENTS TAB ================= */}
+                {/* Payments TAB */}
                 <TabsContent value="payments" className="space-y-6 mt-4">
                     <MaintenancePayments />
                 </TabsContent>

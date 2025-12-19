@@ -101,7 +101,7 @@ function PaymentRow({
                     <Button
                         size="sm"
                         variant="outline"
-                        onClick={() => toast.info('Payment flow will be enabled')}
+                        onClick={() => toast.info('Payment flow is under development')}
                     >
                         Pay Now
                     </Button>

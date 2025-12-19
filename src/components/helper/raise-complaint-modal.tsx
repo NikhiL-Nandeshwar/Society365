@@ -84,7 +84,7 @@ export function RaiseComplaintModal({
           <Button variant="outline" onClick={onClose}>
             Cancel
           </Button>
-          <Button onClick={handleSubmit}>
+          <Button className='bg-teal-700 hover:bg-teal-600 text-white hover:text-white' onClick={handleSubmit}>
             Submit
           </Button>
         </DialogFooter>

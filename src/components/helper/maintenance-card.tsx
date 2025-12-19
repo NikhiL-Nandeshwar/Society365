@@ -2,13 +2,30 @@ import { AlertTriangle, Droplets, Wrench, Zap } from "lucide-react";
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 
-export function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center gap-1">
-      <span className="text-muted-foreground">{label}:</span>
-      <span className="font-medium">{value}</span>
-    </div>
-  )
+export function Stat({
+    label,
+    value,
+    variant = 'default',
+}: {
+    label: string
+    value: string
+    variant?: 'default' | 'success' | 'danger' | 'info'
+}) {
+    const color =
+        variant === 'success'
+            ? 'text-green-700'
+            : variant === 'danger'
+                ? 'text-red-700'
+                : variant === 'info'
+                    ? 'text-blue-700'
+                    : 'text-foreground'
+
+    return (
+        <div className="flex items-center gap-1.5">
+            <span className="text-gray-600">{label} :</span>
+            <span className={`font-medium ${color}`}>{value}</span>
+        </div>
+    )
 }
 
 export function ComplaintCard({

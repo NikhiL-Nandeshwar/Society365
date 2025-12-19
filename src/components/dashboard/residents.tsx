@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { Home, Plus } from 'lucide-react'
 import { AddResidentModal } from '../helper/add-resident-modal'
+import { Stat } from '../helper/maintenance-card'
 
 export default function Residents() {
   const [open, setOpen] = useState(false)
@@ -30,9 +31,9 @@ export default function Residents() {
       {/* Summary Strip */}
       <Card className="px-4 py-3 flex flex-wrap gap-4 text-sm">
         <Stat label="Total Flats" value="96" />
-        <Stat label="Occupied" value="88" />
-        <Stat label="Vacant" value="8" />
-        <Stat label="Rented" value="24" />
+        <Stat label="Occupied" variant='success' value="88" />
+        <Stat label="Vacant" variant='danger' value="8" />
+        <Stat label="Rented" variant='info' value="24" />
       </Card>
 
       {/* Flat Directory */}
@@ -80,15 +81,6 @@ export default function Residents() {
 }
 
 /* ------------------ Components ------------------ */
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center gap-1">
-      <span className="text-muted-foreground">{label}:</span>
-      <span className="font-medium">{value}</span>
-    </div>
-  )
-}
 
 function WingSection({
   wing,
