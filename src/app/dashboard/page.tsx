@@ -4,6 +4,7 @@ import * as React from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Building2, ShieldCheck, CalendarCheck, IndianRupee } from 'lucide-react'
 import { ActivityRow, NoticeRow, OverviewCard, SummaryTile } from '@/components/helper/dashboard-cards'
+import ImportantContactsCard from '@/components/dashboard/important-contacts-card'
 
 export default function DashboardPage() {
   return (
@@ -125,19 +126,22 @@ export default function DashboardPage() {
       </div>
 
       {/* Notices */}
-      <Card className='w-1/2'>
-        <CardHeader>
-          <CardTitle>Latest Notices</CardTitle>
-          <CardDescription>Active announcements</CardDescription>
-        </CardHeader>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <ImportantContactsCard />
+        <Card>
+          <CardHeader>
+            <CardTitle>Latest Notices</CardTitle>
+            <CardDescription>Active announcements</CardDescription>
+          </CardHeader>
 
-        <CardContent className="space-y-3">
-          <NoticeRow text="Water supply will be unavailable on Sunday" />
-          <NoticeRow text="Monthly maintenance due by 10th" />
-          <NoticeRow text="Diwali decoration meeting on Friday" />
-        </CardContent>
-      </Card>
-      <Card className='border-none'></Card>
+          <CardContent className="space-y-3">
+            <NoticeRow text="Water supply will be unavailable on Sunday" />
+            <NoticeRow text="Monthly maintenance due by 10th" />
+            <NoticeRow text="Diwali decoration meeting on Friday" />
+          </CardContent>
+        </Card>
+        <Card className='border-none'></Card>
+      </div>
 
     </div>
   )
